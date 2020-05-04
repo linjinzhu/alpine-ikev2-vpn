@@ -1,7 +1,7 @@
 # From alpine:latest image
 FROM alpine:latest
 
-MAINTAINER @zhuzige
+MAINTAINER @aliasmee
 
 # Define a dynamic variable for Certificate CN
 ENV HOST_IP ''
