@@ -24,12 +24,12 @@ if [ -z "$RADIUS_SECRET" ]; then
   export RADIUS_SECRET=''
 fi
 
-envsubst '
-          ${ACCOUNTING}
-          ${RADIUS_PORT}
-          ${RADIUS_SERVER}
-          ${RADIUS_SECRET}
-         ' < eap-radius.conf.template > /usr/local/etc/strongswan.d/charon/eap-radius.conf
+# envsubst '
+#           ${ACCOUNTING}
+#           ${RADIUS_PORT}
+#           ${RADIUS_SERVER}
+#           ${RADIUS_SECRET}
+#          ' < eap-radius.conf.template > /usr/local/etc/strongswan.d/charon/eap-radius.conf
 
 # Setting eap auth type
 if [ -z "$EAP_TYPE" ]; then
