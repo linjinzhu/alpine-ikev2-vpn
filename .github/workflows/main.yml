@@ -28,13 +28,12 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Docker Action
-      uses: zenato/docker-action@v1.0.0
+      uses: azure/docker-login@v1
       with:
-        # Registry username
-        username: ${{ secrets.DOCKER_USERNAME }}
-        # Registry password
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        # Repository on registry
-        repository: linjinzhu/ikev2
-        # Image tag
-        tag: v0.3
+        login-server: index.docker.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: |
+        docker build . -t linjinzhu/ikev2:${{ github.sha }}
+        docker push linjinzhu/ikev2:${{ github.sha }}
